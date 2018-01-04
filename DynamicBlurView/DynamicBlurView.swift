@@ -36,14 +36,14 @@ open class DynamicBlurView: UIView {
 
     /// When true, it captures displays image and blur it asynchronously. Try to set true if needs more performance.
     /// Asynchronous drawing is possibly crash when needs to process on main thread that drawing with animation for example.
-    open var drawsAsynchronously: Bool = false
+    public var drawsAsynchronously: Bool = false
     /// Radius of blur.
-    open var blurRadius: CGFloat {
+    public var blurRadius: CGFloat {
         set { blurLayer.blurRadius = newValue }
         get { return blurLayer.blurRadius }
     }
     /// Default is none.
-    open var trackingMode: TrackingMode = .none {
+    public var trackingMode: TrackingMode = .none {
         didSet {
             if trackingMode != oldValue {
                 linkForDisplay()
@@ -51,15 +51,15 @@ open class DynamicBlurView: UIView {
         }
     }
     /// Blend color.
-    open var blendColor: UIColor?
+    public var blendColor: UIColor?
 	/// Blend mode.
-    open var blendMode: CGBlendMode = .plusLighter
+    public var blendMode: CGBlendMode = .plusLighter
     /// Default is 3.
-    open var iterations: Int = 3
+    public var iterations: Int = 3
     /// If the view want to render beyond the layer, should be true.
-    open var isDeepRendering: Bool = false
+    public var isDeepRendering: Bool = false
     /// When none of tracking mode, it can change the radius of blur with the ratio. Should set from 0 to 1.
-    open var blurRatio: CGFloat = 1 {
+    public var blurRatio: CGFloat = 1 {
         didSet {
             if let image = staticImage, oldValue != blurRatio {
                 draw(image, blurRadius: blurRadius, fixes: false, baseLayer: renderingTarget?.layer)
